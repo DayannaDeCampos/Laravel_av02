@@ -45,6 +45,14 @@ class UsuarioController extends Controller
             ]
         );
 
+        $dados = [
+            'nome' => $request->nome,
+            'nomepet' => $request->nomepet,
+            'telefone' => $request->telefone,
+            'email' => $request->email,
+            'categoria_id' => $request->categoria_id,
+        ];
+
         $imagem = $request->file('imagem');
         $nome_arquivo = '';
         if ($imagem) {
@@ -53,18 +61,11 @@ class UsuarioController extends Controller
 
             $diretorio = 'imagem/';
             $imagem->storeAs($diretorio, $nome_arquivo, 'public');
-            $nome_arquivo = $diretorio . $nome_arquivo;
+            $dados['imagem'] = $diretorio . $nome_arquivo;
         }
 
         //dd( $request->nome);
-        Usuario::create([
-            'nome' => $request->nome,
-            'nomepet' => $request->nomepet,
-            'telefone' => $request->telefone,
-            'email' => $request->email,
-            'categoria_id' => $request->categoria_id,
-            'imagem' => $nome_arquivo,
-        ]);
+        Usuario::create($dados);
 
         return \redirect()->action(
             'App\Http\Controllers\UsuarioController@index'
@@ -120,6 +121,14 @@ class UsuarioController extends Controller
             ]
         );
 
+        $dados = [
+            'nome' => $request->nome,
+            'nomepet' => $request->nomepet,
+            'telefone' => $request->telefone,
+            'email' => $request->email,
+            'categoria_id' => $request->categoria_id,
+        ];
+
         $imagem = $request->file('imagem');
         $nome_arquivo = '';
         if ($imagem) {
@@ -128,19 +137,12 @@ class UsuarioController extends Controller
 
             $diretorio = 'imagem/';
             $imagem->storeAs($diretorio, $nome_arquivo, 'public');
-            $nome_arquivo = $diretorio . $nome_arquivo;
+           $dados['imagem'] =  $diretorio . $nome_arquivo;
         }
 
         Usuario::updateOrCreate(
             ['id' => $request->id],
-            [
-                'nome' => $request->nome,
-                'nomepet' => $request->nomepet,
-                'telefone' => $request->telefone,
-                'email' => $request->email,
-                'categoria_id' => $request->categoria_id,
-                'imagem' => $nome_arquivo,
-            ]
+             $dados
         );
 
         return \redirect()->action(

@@ -38,9 +38,11 @@
 
 
   <div class="d-grid gap-2 col-6 mx-auto">
-  <a href="UsuarioForm.php"button href="UsuarioForm.php" class="btn btn" style="background-color: rgb(184, 151, 214)" type="button">Cadastrar Paciente(pet)</button></a>
-  <a href="BrinquedosForm.php" button class="btn btn" style="background-color: rgb(184, 151, 214)" type="button">Cadastrar Brinquedos para venda</button> </a>
-  <a href="AgendaForm.php" button class="btn btn" style="background-color: rgb(184, 151, 214)" type="button">Cadastrar Consultas</button> </a>
+  <a href='{{ action('App\Http\Controllers\UsuarioController@create') }}'button class="btn btn" style="background-color: rgb(184, 151, 214)" type="button">Cadastrar Paciente(pet)</button></a>
+  <a href='{{ action('App\Http\Controllers\BrinquedoController@create') }}' button class="btn btn" style="background-color: rgb(184, 151, 214)" type="button">Cadastrar Brinquedos para venda</button> </a>
+  <a href='{{ action('App\Http\Controllers\AgendaController@create') }}' button class="btn btn" style="background-color: rgb(184, 151, 214)" type="button">Cadastrar Agenda</button> </a>
+  <a href='{{ action('App\Http\Controllers\MedicamentoController@create') }}' button class="btn btn" style="background-color: rgb(184, 151, 214)" type="button">Cadastrar Medicamentos</button> </a>
+  <a href='{{-- action('App\Http\Controllers\LeituraController@create') --}}' button class="btn btn" style="background-color: rgb(184, 151, 214)" type="button">Cadastrar Mac (Miguel)</button> </a>
   </div>
 
 

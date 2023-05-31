@@ -74,7 +74,7 @@
             </div>
             <div class="col-3">
                 <label class="form-label">Qtd. Estoque</label><br>
-                <input type="email" class="form-control" name="estoque"
+                <input type="text" class="form-control" name="estoque"
                     value="@if (!empty(old('estoque'))) {{ old('estoque') }} @elseif(!empty($medicamento->estoque)) {{ $medicamento->estoque }} @else {{ '' }} @endif" /><br>
             </div>
 

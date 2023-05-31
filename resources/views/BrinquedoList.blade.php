@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
+    <title>Pet Lover</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -31,7 +31,7 @@
       </nav>
 
     <div class="container">
-        <h1>Listagem de Usuários {{ request()->id }}</h1>
+        <h1>Listagem de Brinquedos {{ request()->id }}</h1>
         <form action="{{ action('App\Http\Controllers\BrinquedoController@search') }}" method="post">
             @csrf
             <div class="row">
@@ -74,8 +74,6 @@
                         <td>{{ $item->cor }}</td>
                         <td>{{ $item->estoque }}</td>
                         <td>{{ $item->valor }}</td>
-                        <td>{{ $item->categoria->nome }}</td>
-
                         <td><a href="{{ action('App\Http\Controllers\BrinquedoController@edit', $item->id) }}"><i
                                     class='fa-solid fa-pen-to-square' style='color:orange;'></i></a></td>
                         <td>

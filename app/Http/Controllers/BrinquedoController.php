@@ -29,7 +29,7 @@ class BrinquedoController extends Controller
                 'nome' => 'required | max: 120',
                 'cor' => 'required | max: 120',
                 'estoque' => 'required | max: 20',
-                'valor' => ' nullable | email | max: 100',
+                'valor' => ' nullable | max: 100',
             ],
             [
                 'nome.required' => 'O nome é obrigatório',
@@ -94,7 +94,7 @@ class BrinquedoController extends Controller
                 'nome' => 'required | max: 120',
                 'cor' => 'required | max: 120',
                 'estoque' => 'required | max: 20',
-                'valor' => ' nullable | email | max: 100',
+                'valor' => ' nullable | max: 100',
             ],
             [
                 'nome.required' => 'O nome é obrigatório',

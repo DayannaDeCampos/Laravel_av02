@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
+    <title>Pet Lover</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -15,23 +15,28 @@
 <body style="background-image: url(/img/background.jpg)">
     <nav class="navbar" style="background-color: rgb(184, 151, 214)">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">
-            <img src="/img/logo.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
-            <b>Pet Lover</b>
-          </a>
-          <a class="nav-link" href="{{ url('/usuario') }}">Listar Pacientes</a>
-          <a class="nav-link" href="{{ url('/agenda') }}">Listar Agenda</a>
-          <a class="nav-link" href="{{ url('/brinquedo') }}">Listar Brinquedos</a>
-          <a class="nav-link" href="{{ url('/medicamento') }}">Listar Medicamentos</a>
-          <a class="nav-link" href="{{ url('/miguel') }}">CRUD Miguel</a>
-          <a  class="btn btn-danger" href="{{ url('login') }}" >Sair</a>
-
+            <a class="navbar-brand" href="#">
+                <img src="/img/logo.png" alt="Logo" width="30" height="24"
+                    class="d-inline-block align-text-top">
+                <b>Pet Lover</b>
+            </a>
+            <a class="nav-link" href="{{ url('/usuario') }}">Listar Pacientes</a>
+            <a class="nav-link" href="{{ url('/agenda') }}">Listar Agenda</a>
+            <a class="nav-link" href="{{ url('/brinquedo') }}">Listar Brinquedos</a>
+            <a class="nav-link" href="{{ url('/medicamento') }}">Listar Medicamentos</a>
+            <a class="nav-link" href="{{ url('/miguel') }}">CRUD Miguel</a>
+            <a class="btn btn-danger" href="{{ route('logout') }}"
+                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                <i class='fas fa-sign-out-alt'></i> {{ __('Sair') }}</a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                @csrf
+            </form>
         </div>
-      </nav>
+    </nav>
 
     <div class="container">
-        <h1>Listagem de Usuários {{ request()->id }}</h1>
-        <form action="{{ action('App\Http\Controllers\UsuarioController@search') }}" method="post">
+        <h1>Listagem de Medicamentos {{ request()->id }}</h1>
+        <form action="{{ action('App\Http\Controllers\MedicamentoController@search') }}" method="post">
             @csrf
             <div class="row">
                 <div class="col-2">
@@ -48,7 +53,8 @@
                     <button class="btn btn-primary" type="submit">
                         <i class="fa-solid fa-magnifying-glass"></i> Buscar
                     </button>
-                    <a class="btn btn-success" href='{{ action('App\Http\Controllers\UsuarioController@create') }}'><i
+                    <a class="btn btn-success"
+                        href='{{ action('App\Http\Controllers\MedicamentoController@create') }}'><i
                             class="fa-solid fa-plus"></i> Cadastrar</a>
                 </div>
             </div>
@@ -58,32 +64,27 @@
                 <tr>
                     <th scope="col">ID</th>
                     <th scope="col">Nome</th>
-                    <th scope="col">Nome pet</th>
-                    <th scope="col">Telefone</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Categoria</th>
+                    <th scope="col">Lote</th>
+                    <th scope="col">Validade</th>
+                    <th scope="col">Estoque</th>
                     <th scope="col"></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($usuarios as $item)
-                    @php
-                        $nome_imagem = !empty($item->imagem) ? $item->imagem : 'sem_imagem.jpg';
-                    @endphp
+                @foreach ($medicamentos as $item)
                     <tr>
                         <td scope='row'>{{ $item->id }}</td>
                         <td>{{ $item->nome }}</td>
-                        <td>{{ $item->nomepet }}</td>
-                        <td>{{ $item->telefone }}</td>
-                        <td>{{ $item->email }}</td>
-                        <td>{{ $item->categoria->nome }}</td>
-                        <td><img src="/storage/{{ $nome_imagem }}" width="100px" class="img-thumbnail" /> </td>
-                        <td><a href="{{ action('App\Http\Controllers\UsuarioController@edit', $item->id) }}"><i
+                        <td>{{ $item->lote }}</td>
+                        <td>{{ $item->validade }}</td>
+                        <td>{{ $item->estoque }}</td>
+
+                        <td><a href="{{ action('App\Http\Controllers\MedicamentoController@edit', $item->id) }}"><i
                                     class='fa-solid fa-pen-to-square' style='color:orange;'></i></a></td>
                         <td>
                             <form method="POST"
-                                action="{{ action('App\Http\Controllers\UsuarioController@destroy', $item->id) }}">
+                                action="{{ action('App\Http\Controllers\MedicamentoController@destroy', $item->id) }}">
                                 <input type="hidden" name="_method" value="DELETE">
                                 @csrf
                                 <button type="submit" onclick='return confirm("Deseja Excluir?")'
