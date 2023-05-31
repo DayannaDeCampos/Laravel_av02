@@ -11,7 +11,7 @@ class UsuarioController extends Controller
     function index()
     {
         $usuarios = Usuario::All();
-        // dd($usuarios);
+
 
         return view('UsuarioList')->with(['usuarios' => $usuarios]);
     }
@@ -162,17 +162,15 @@ class UsuarioController extends Controller
 
     function search(Request $request)
     {
-        if ($request->campo == 'nome') {
-            $usuarios = Usuario::where(
-                'nome',
-                'like',
-                '%' . $request->valor . '%'
-            )->get();
+        $campo = $request->campo;
+
+        if (!empty($campo)) {
+            $usuarios = Usuario::where($campo, 'like', '%' . $request->valor . '%')->get();
         } else {
             $usuarios = Usuario::all();
         }
 
-        //dd($usuarios);
+
         return view('UsuarioList')->with(['usuarios' => $usuarios]);
     }
 }

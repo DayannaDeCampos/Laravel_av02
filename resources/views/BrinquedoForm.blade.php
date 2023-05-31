@@ -5,15 +5,15 @@
         <meta charset="utf-8">
         <link rel="icon" type="image/x-icon" href="/img/pata.png" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Usuario Form</title>
+        <title>Brinquedo Form</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
       </head>
 @php
-    if (!empty($usuario->id)) {
-        $route = route('usuario.update', $usuario->id);
+    if (!empty($brinquedo->id)) {
+        $route = route('brinquedo.update', $brinquedo->id);
     } else {
-        $route = route('usuario.store');
+        $route = route('brinquedo.store');
     }
 @endphp
 
@@ -34,7 +34,7 @@
           </nav>
           <div class="container">
 
-        <h1>Formulário cadastro 1</h1>
+        <h1>Formulário cadastro Brinquedos</h1>
 
         @if ($errors->any())
             <div class="alert alert-danger">
@@ -48,34 +48,34 @@
 
         <form action='{{ $route }}' method="POST" enctype="multipart/form-data">
             @csrf
-            @if (!empty($usuario->id))
+            @if (!empty($brinquedo->id))
                 @method('PUT')
             @endif
 
             <input type="hidden" name="id"
-                value="@if (!empty(old('id'))) {{ old('id') }} @elseif(!empty($usuario->id)) {{ $usuario->id }} @else {{ '' }} @endif" /><br>
+                value="@if (!empty(old('id'))) {{ old('id') }} @elseif(!empty($brinquedo->id)) {{ $brinquedo->id }} @else {{ '' }} @endif" /><br>
 
                 <div class="col-3">
                 <label class="form-label">Nome</label><br>
                 <input type="text" class="form-control" name="nome"
-                    value="@if (!empty(old('nome'))) {{ old('nome') }} @elseif(!empty($usuario->nome)) {{ $usuario->nome }} @else {{ '' }} @endif" /><br>
+                    value="@if (!empty(old('nome'))) {{ old('nome') }} @elseif(!empty($brinquedo->nome)) {{ $brinquedo->nome }} @else {{ '' }} @endif" /><br>
             </div>
 
             <div class="col-3">
-                <label class="form-label">Nome Pet</label><br>
-                <input type="text" class="form-control" name="nomepet"
-                    value="@if (!empty(old('nomepet'))) {{ old('nomepet') }} @elseif(!empty($usuario->nomepet)) {{ $usuario->nomepet }} @else {{ '' }} @endif" /><br>
+                <label class="form-label">Cor</label><br>
+                <input type="text" class="form-control" name="cor"
+                    value="@if (!empty(old('cor'))) {{ old('cor') }} @elseif(!empty($brinquedo->cor)) {{ $brinquedo->cor }} @else {{ '' }} @endif" /><br>
             </div>
 
             <div class="col-3">
-                <label class="form-label">Telefone</label><br>
-                <input type="text" class="form-control" name="telefone"
-                    value="@if (!empty(old('telefone'))) {{ old('telefone') }} @elseif(!empty($usuario->telefone)) {{ $usuario->telefone }} @else {{ '' }} @endif" /><br>
+                <label class="form-label"> Qtd. Estoque</label><br>
+                <input type="text" class="form-control" name="estoque"
+                    value="@if (!empty(old('estoque'))) {{ old('estoque') }} @elseif(!empty($brinquedo->estoque)) {{ $brinquedo->estoque }} @else {{ '' }} @endif" /><br>
             </div>
             <div class="col-3">
-                <label class="form-label">E-mail</label><br>
-                <input type="email" class="form-control" name="email"
-                    value="@if (!empty(old('email'))) {{ old('email') }} @elseif(!empty($usuario->email)) {{ $usuario->email }} @else {{ '' }} @endif" /><br>
+                <label class="form-label">Valor</label><br>
+                <input type="text" class="form-control" name="valor"
+                    value="@if (!empty(old('valor'))) {{ old('valor') }} @elseif(!empty($brinquedo->valor)) {{ $brinquedo->valor }} @else {{ '' }} @endif" /><br>
             </div>
             <div class="col-3">
                 <label class="form-label">Categoria</label><br>
@@ -85,19 +85,12 @@
                     @endforeach
                 </select>
             </div>
-            @php
-                $nome_imagem = !empty($usuario->imagem) ? $usuario->imagem : 'sem_imagem.jpg';
-            @endphp
-            <div class="col-6">
-                <br>
-                <img class="img-thumbnail" src="/storage/{{ $nome_imagem }}" width="300px" />
-                <br><br>
-                <input type="file" class="form-control" name="imagem" /><br>
-            </div>
+
+
             <button class="btn btn-success" type="submit">
                 <i class="fa-solid fa-save"></i> Salvar
             </button>
-            <a href='{{ route('usuario.index') }}' class="btn btn-primary"><i class="fa-solid fa-arrow-left"></i>
+            <a href='{{ route('brinquedo.index') }}' class="btn btn-primary"><i class="fa-solid fa-arrow-left"></i>
                 Voltar</a>
         </form>
     </div>

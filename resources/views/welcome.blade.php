@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <title>Pet Shop Dayanna</title>
+    <title>Pet Lover</title>
     <meta charset="utf-8">
     <link rel="icon" type="image/x-icon" href="/img/pata.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,7 +21,7 @@
             <a class="navbar-brand" href="#">
                 <img src="img/logo.png" alt="Logo" width="30" height="24"
                     class="d-inline-block align-text-top">
-                <b>Pet Shop da Dayanna</b>
+                <b>Pet Lover</b>
                 <a class="btn btn-success" href="{{ url('login') }}"><b>Fazer login</b></a>
                 <a class="btn btn-success" href="{{ url('register') }}"><b>Registrar</b></a>
             </a>
@@ -32,7 +32,7 @@
         <p align="justify">Um pet shop é um estabelecimento comercial que oferece uma variedade de produtos e serviços
             para animais de estimação, como cães, gatos, pássaros, roedores e répteis. </p>
         <p align="justify">Trabalho da matéria PROGRAMAÇÃO PARA WEB II, professor Jackson. </p>
-        <p align="justify">Este trabalho foi realizado de forma individual pela aluna Dayanna de Campos Henrique </p>
+        <p align="justify">Este trabalho foi realizado pelas alunas Dayanna de Campos e Julia Vertuoso</p>
 
         <img src="img/logo.png" class="rounded" alt="logo">
     </div>
@@ -42,7 +42,7 @@
             <center> <span class="material-symbols-outlined">phone_in_talk</span>
                 <a>Telefone: (49) 9 8883-2143 </a><br>
                 <span class="material-symbols-outlined">outgoing_mail</span>
-                <a>Email: PetShop.Daya@gmail.com </a><br>
+                <a>Email: PetLover@gmail.com </a><br>
                 <span class="material-symbols-outlined">location_on</span>
                 <a>ENDEREÇO: <p>Rua das rosas,<br>
                         Bairro do céu<br>
@@ -61,7 +61,7 @@
     </footer>
     </div>
     <footer>
-        <p>Copyright &copy 2023 por Dayanna de Campos Henrique. Todos os direitos reservados.</p>
+        <p>Copyright &copy 2023 por Dayanna de Campos Henrique e Julia Vertuoso. Todos os direitos reservados.</p>
     </footer>
     </section>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"

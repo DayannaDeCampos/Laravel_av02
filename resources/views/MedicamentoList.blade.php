@@ -37,8 +37,8 @@
                 <div class="col-2">
                     <select name="campo" class="form-select">
                         <option value="nome">Nome</option>
-                        <option value="nomepet">Nome pet</option>
-                        <option value="telefone">Telefone</option>
+                        <option value="lote">Lote</option>
+                        <option value="telefone">Estoque</option>
                     </select>
                 </div>
                 <div class="col-4">

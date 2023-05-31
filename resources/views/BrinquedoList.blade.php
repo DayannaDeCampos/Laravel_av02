@@ -26,19 +26,20 @@
           <a class="nav-link" href="{{ url('/miguel') }}">CRUD Miguel</a>
           <a  class="btn btn-danger" href="{{ url('login') }}" >Sair</a>
 
+
         </div>
       </nav>
 
     <div class="container">
         <h1>Listagem de Usuários {{ request()->id }}</h1>
-        <form action="{{ action('App\Http\Controllers\UsuarioController@search') }}" method="post">
+        <form action="{{ action('App\Http\Controllers\BrinquedoController@search') }}" method="post">
             @csrf
             <div class="row">
                 <div class="col-2">
                     <select name="campo" class="form-select">
                         <option value="nome">Nome</option>
-                        <option value="nomepet">Nome pet</option>
-                        <option value="telefone">Telefone</option>
+                        <option value="cor">Cor</option>
+                        <option value="estoque">Qtd. Estoque</option>
                     </select>
                 </div>
                 <div class="col-4">
@@ -48,7 +49,7 @@
                     <button class="btn btn-primary" type="submit">
                         <i class="fa-solid fa-magnifying-glass"></i> Buscar
                     </button>
-                    <a class="btn btn-success" href='{{ action('App\Http\Controllers\UsuarioController@create') }}'><i
+                    <a class="btn btn-success" href='{{ action('App\Http\Controllers\BrinquedoController@create') }}'><i
                             class="fa-solid fa-plus"></i> Cadastrar</a>
                 </div>
             </div>
@@ -58,32 +59,28 @@
                 <tr>
                     <th scope="col">ID</th>
                     <th scope="col">Nome</th>
-                    <th scope="col">Nome pet</th>
-                    <th scope="col">Telefone</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Categoria</th>
+                    <th scope="col">Cor</th>
+                    <th scope="col">Estoque</th>
+                    <th scope="col">Valor</th>
                     <th scope="col"></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($usuarios as $item)
-                    @php
-                        $nome_imagem = !empty($item->imagem) ? $item->imagem : 'sem_imagem.jpg';
-                    @endphp
+                @foreach ($brinquedos as $item)
                     <tr>
                         <td scope='row'>{{ $item->id }}</td>
                         <td>{{ $item->nome }}</td>
-                        <td>{{ $item->nomepet }}</td>
-                        <td>{{ $item->telefone }}</td>
-                        <td>{{ $item->email }}</td>
+                        <td>{{ $item->cor }}</td>
+                        <td>{{ $item->estoque }}</td>
+                        <td>{{ $item->valor }}</td>
                         <td>{{ $item->categoria->nome }}</td>
-                        <td><img src="/storage/{{ $nome_imagem }}" width="100px" class="img-thumbnail" /> </td>
-                        <td><a href="{{ action('App\Http\Controllers\UsuarioController@edit', $item->id) }}"><i
+
+                        <td><a href="{{ action('App\Http\Controllers\BrinquedoController@edit', $item->id) }}"><i
                                     class='fa-solid fa-pen-to-square' style='color:orange;'></i></a></td>
                         <td>
                             <form method="POST"
-                                action="{{ action('App\Http\Controllers\UsuarioController@destroy', $item->id) }}">
+                                action="{{ action('App\Http\Controllers\BrinquedoController@destroy', $item->id) }}">
                                 <input type="hidden" name="_method" value="DELETE">
                                 @csrf
                                 <button type="submit" onclick='return confirm("Deseja Excluir?")'

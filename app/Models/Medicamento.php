@@ -8,15 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Usuario extends Model
 {
     use HasFactory;
-    protected $table = "usuario";
+    protected $table = "medicamento";
 
     protected $fillable = [
-        'nome', 'telefone', 'email','nomepet','categoria_id', 'imagem'
+        'nome', 'lote', 'validade','estoque'
     ];
 
-    public function categoria(){
-        return $this->belongsTo(Categoria::class,'categoria_id','id');
-    }
 
 }
 

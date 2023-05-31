@@ -2,6 +2,9 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UsuarioController;
+use App\Http\Controllers\AgendaController;
+use App\Http\Controllers\BrinquedoController;
+use App\Http\Controllers\MedicamentoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,8 +32,14 @@ Route::middleware('auth')->group(function () {
     Route::resource('usuario', UsuarioController::class);
     Route::post('usuario/search', [UsuarioController::class, 'search']);
 
-    //Route::resource('agenda', UsuarioController::class);
-   // Route::post('agenda/search', [UsuarioController::class, 'search']);
+    Route::resource('agenda', AgendaController::class);
+   Route::post('agenda/search', [AgendaController::class, 'search']);
+
+   Route::resource('brinquedo', BrinquedoController::class);
+   Route::post('brinquedo/search', [BrinquedoController::class, 'search']);
+
+   Route::resource('medicamento', MedicamentoController::class);
+   Route::post('medicamento/search', [MedicamentoController::class, 'search']);
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name(
         'profile.edit'

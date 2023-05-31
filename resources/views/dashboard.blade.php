@@ -19,10 +19,12 @@
         <img src="/img/logo.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
         <b>Pet Lover</b>
       </a>
-            <a class="nav-link" href="{{ url('login') }}">Listar Clientes</a>
-            <a class="nav-link" href="AgendaList.php">Listar Consultas</a>
-            <a class="nav-link" href="BrinquedosList.php">Listar Brinquedos</a>
-            <a  class="btn btn-danger" href="{{ url('login') }}" >Sair</a>
+      <a class="nav-link" href="{{ url('/usuario') }}">Listar Pacientes</a>
+          <a class="nav-link" href="{{ url('/agenda') }}">Listar Agenda</a>
+          <a class="nav-link" href="{{ url('/brinquedo') }}">Listar Brinquedos</a>
+          <a class="nav-link" href="{{ url('/medicamento') }}">Listar Medicamentos</a>
+          <a class="nav-link" href="{{ url('/miguel') }}">CRUD Miguel</a>
+          <a  class="btn btn-danger" href="{{ url('login') }}" >Sair</a>
 
     </div>
 
@@ -36,7 +38,7 @@
 
 
   <div class="d-grid gap-2 col-6 mx-auto">
-  <a href="UsuarioForm.php"button href="UsuarioForm.php" class="btn btn" style="background-color: rgb(184, 151, 214)" type="button">Cadastrar Cliente(pet)</button></a>
+  <a href="UsuarioForm.php"button href="UsuarioForm.php" class="btn btn" style="background-color: rgb(184, 151, 214)" type="button">Cadastrar Paciente(pet)</button></a>
   <a href="BrinquedosForm.php" button class="btn btn" style="background-color: rgb(184, 151, 214)" type="button">Cadastrar Brinquedos para venda</button> </a>
   <a href="AgendaForm.php" button class="btn btn" style="background-color: rgb(184, 151, 214)" type="button">Cadastrar Consultas</button> </a>
   </div>
@@ -48,27 +50,31 @@
              <br> <br> <h4>Contato</h4>
               <footer>
                   <ul>
-                     <center> <span class="material-symbols-outlined">phone_in_talk</span>
-                          <a>Telefone: (49) 9 8883-2143 </a><br>
-                      <span class="material-symbols-outlined">outgoing_mail</span>
-                          <a>Email: PetShop.Daya@gmail.com </a><br>
-                      <span class="material-symbols-outlined">location_on</span>
-                          <a>ENDEREÇO: <p>Rua das rosas,<br>
-                              Bairro do céu<br>
-                              Chapecó/SC</p> </a></li></center>
-                  </ul>
-              </footer>
+                    <center> <span class="material-symbols-outlined">phone_in_talk</span>
+                        <a>Telefone: (49) 9 8883-2143 </a><br>
+                        <span class="material-symbols-outlined">outgoing_mail</span>
+                        <a>Email: PetLover@gmail.com </a><br>
+                        <span class="material-symbols-outlined">location_on</span>
+                        <a>ENDEREÇO: <p>Rua das rosas,<br>
+                                Bairro do céu<br>
+                                Chapecó/SC</p> </a></li>
+                    </center>
+                </ul>
+            </footer>
 
-          <footer>
-              <div>
-                  <center><img src="/img/icone.png"></center>
-                  <center><h1>Pet Shop</h1></center>
-              </div>
-          </footer>
+            <footer>
+                <div>
+                    <center><img src="/img/icone.png"></center>
+                    <center>
+                        <h1>Pet Shop</h1>
+                    </center>
+                </div>
+            </footer>
+            </div>
+            <footer>
+                <p>Copyright &copy 2023 por Dayanna de Campos Henrique e Julia Vertuoso. Todos os direitos reservados.</p>
+            </footer>
       </div>
-          <footer>
-              <p>Copyright &copy 2023 por Dayanna de Campos Henrique. Todos os direitos reservados.</p>
-           </footer>
            </section>
     </body>
   </html>

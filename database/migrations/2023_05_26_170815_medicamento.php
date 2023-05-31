@@ -13,13 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('agenda', function (Blueprint $table) {
+        Schema::create('medicamento', function (Blueprint $table) {
             $table->id();
-            $table->string('veterinario',50);
-            $table->string('paciente',20);
-            $table->string('consulta',100);
-            $table->date('dia');
-            $table->string('horario',10);
+            $table->string('nome',120);
+            $table->string('lote',120);
+            $table->date('validade');
+            $table->string('estoque',100);
+
             $table->timestamps();
         });
     }
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('medicamento');
     }
 };
