@@ -43,7 +43,7 @@
                     <select name="campo" class="form-select">
                         <option value="nome">Nome</option>
                         <option value="lote">Lote</option>
-                        <option value="telefone">Estoque</option>
+                        <option value="estoque">Estoque</option>
                     </select>
                 </div>
                 <div class="col-4">

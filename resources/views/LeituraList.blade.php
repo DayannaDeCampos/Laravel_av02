@@ -62,6 +62,7 @@
             <thead>
                 <tr>
                     <th scope="col">ID</th>
+                    <th scope="col">Data da Leitura</th>
                     <th scope="col">Hora da Leitura</th>
                     <th scope="col">Valor Sensor</th>
                     <th scope="col">ID Sensor</th>

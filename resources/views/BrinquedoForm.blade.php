@@ -82,15 +82,6 @@
                 <input type="text" class="form-control" name="valor"
                     value="@if (!empty(old('valor'))) {{ old('valor') }} @elseif(!empty($brinquedo->valor)) {{ $brinquedo->valor }} @else {{ '' }} @endif" /><br>
             </div>
-            <div class="col-3">
-                <label class="form-label">Categoria</label><br>
-                <select name="categoria_id" class="form-select">
-                    @foreach ($categorias as $item)
-                        <option value="{{ $item->id }}">{{ $item->nome }}</option>
-                    @endforeach
-                </select>
-            </div>
-
 
             <button class="btn btn-success" type="submit">
                 <i class="fa-solid fa-save"></i> Salvar

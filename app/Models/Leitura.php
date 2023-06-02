@@ -11,7 +11,7 @@ class Leitura extends Model
     protected $table = "leitura";
 
     protected $fillable = [
-        'data_leitura', 'hora_leitura', 'valor_sensor','sensor', 'mac'
+        'data_leitura', 'hora_leitura', 'valor_sensor','sensor_id', 'mac_id'
     ];
 public function mac(){
     return $this->belongsTo(Mac::class,'mac_id', 'id');
