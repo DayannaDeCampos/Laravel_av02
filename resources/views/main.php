@@ -22,12 +22,17 @@
       <img src="/img/logo.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
       <b>Pet Lover</b>
     </a>
-    <a class="nav-link" href="{{ url('/usuario') }}">Listar Clientes</a>
+    <a class="nav-link" href="{{ url('/usuario') }}">Listar Pacientes</a>
           <a class="nav-link" href="{{ url('/agenda') }}">Listar Agenda</a>
           <a class="nav-link" href="{{ url('/brinquedo') }}">Listar Brinquedos</a>
           <a class="nav-link" href="{{ url('/medicamento') }}">Listar Medicamentos</a>
-          <a class="nav-link" href="{{ url('/miguel') }}">CRUD Miguel</a>
-          <a  class="btn btn-danger" href="{{ url('login') }}" >Sair</a>
+          <a class="nav-link" href="{{ url('/leitura') }}">CRUD Miguel</a>
+          <a class="btn btn-danger" href="{{ route('logout') }}"
+                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                <i class='fas fa-sign-out-alt'></i> {{ __('Sair') }}</a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                @csrf
+            </form>
   </div>
 </nav>
 <div class="container">
@@ -38,9 +43,11 @@
 		?>
 
 <div class="d-grid gap-2 col-6 mx-auto">
-<a href="{{ url('/usuario') }}"button href="UsuarioForm.php" class="btn btn" style="background-color: rgb(184, 151, 214)" type="button">Cadastrar Cliente(pet)</button></a>
+<a href="{{ url('/usuario') }}"button href="UsuarioForm.php" class="btn btn" style="background-color: rgb(184, 151, 214)" type="button">Cadastrar Paciente(pet)</button></a>
 <a href="{{ url('/brinquedo') }}" button class="btn btn" style="background-color: rgb(184, 151, 214)" type="button">Cadastrar Brinquedos para venda</button> </a>
-<a href="{{ url('/agenda') }}" button class="btn btn" style="background-color: rgb(184, 151, 214)" type="button">Cadastrar Consultas</button> </a>
+<a href="{{ url('/agenda') }}" button class="btn btn" style="background-color: rgb(184, 151, 214)" type="button">Cadastrar Agenda</button> </a>
+<a href="{{ url('/medicamento') }}" button class="btn btn" style="background-color: rgb(184, 151, 214)" type="button">Cadastrar Medicamentos</button> </a>
+<a href="{{ url('/leitura') }}" button class="btn btn" style="background-color: rgb(184, 151, 214)" type="button">Cadastrar Leituras</button> </a>
 </div>
 
 

@@ -28,13 +28,18 @@
                 <a class="nav-link" href="{{ url('/agenda') }}">Listar Agenda</a>
                 <a class="nav-link" href="{{ url('/brinquedo') }}">Listar Brinquedos</a>
                 <a class="nav-link" href="{{ url('/medicamento') }}">Listar Medicamentos</a>
-                <a class="nav-link" href="{{ url('/miguel') }}">CRUD Miguel</a>
-                <a  class="btn btn-danger" href="{{ url('login') }}" >Sair</a>
+                <a class="nav-link" href="{{ url('/leitura') }}">CRUD Miguel</a>
+                <a class="btn btn-danger" href="{{ route('logout') }}"
+                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                <i class='fas fa-sign-out-alt'></i> {{ __('Sair') }}</a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                @csrf
+            </form>
             </div>
           </nav>
           <div class="container">
 
-        <h1>Formulário cadastro Paciente</h1>
+        <h1>Formulário Paciente</h1>
 
         @if ($errors->any())
             <div class="alert alert-danger">

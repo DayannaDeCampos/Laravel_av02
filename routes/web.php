@@ -5,6 +5,7 @@ use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\BrinquedoController;
 use App\Http\Controllers\MedicamentoController;
+use App\Http\Controllers\LeituraController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -40,6 +41,9 @@ Route::middleware('auth')->group(function () {
 
    Route::resource('medicamento', MedicamentoController::class);
    Route::post('medicamento/search', [MedicamentoController::class, 'search']);
+
+   Route::resource('leitura', LeituraController::class);
+   Route::post('leitura/search', [LeituraController::class, 'search']);
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name(
         'profile.edit'

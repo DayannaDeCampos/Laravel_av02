@@ -23,8 +23,13 @@
           <a class="nav-link" href="{{ url('/agenda') }}">Listar Agenda</a>
           <a class="nav-link" href="{{ url('/brinquedo') }}">Listar Brinquedos</a>
           <a class="nav-link" href="{{ url('/medicamento') }}">Listar Medicamentos</a>
-          <a class="nav-link" href="{{ url('/miguel') }}">CRUD Miguel</a>
-          <a  class="btn btn-danger" href="{{ url('login') }}" >Sair</a>
+          <a class="nav-link" href="{{ url('/leitura') }}">CRUD Miguel</a>
+          <a class="btn btn-danger" href="{{ route('logout') }}"
+                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                <i class='fas fa-sign-out-alt'></i> {{ __('Sair') }}</a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                @csrf
+            </form>
 
     </div>
 
@@ -42,7 +47,7 @@
   <a href='{{ action('App\Http\Controllers\BrinquedoController@create') }}' button class="btn btn" style="background-color: rgb(184, 151, 214)" type="button">Cadastrar Brinquedos para venda</button> </a>
   <a href='{{ action('App\Http\Controllers\AgendaController@create') }}' button class="btn btn" style="background-color: rgb(184, 151, 214)" type="button">Cadastrar Agenda</button> </a>
   <a href='{{ action('App\Http\Controllers\MedicamentoController@create') }}' button class="btn btn" style="background-color: rgb(184, 151, 214)" type="button">Cadastrar Medicamentos</button> </a>
-  <a href='{{-- action('App\Http\Controllers\LeituraController@create') --}}' button class="btn btn" style="background-color: rgb(184, 151, 214)" type="button">Cadastrar Mac (Miguel)</button> </a>
+  <a href='{{action('App\Http\Controllers\LeituraController@create')}}' button class="btn btn" style="background-color: rgb(184, 151, 214)" type="button">Cadastrar Mac (Miguel)</button> </a>
   </div>
 
 
